@@ -1,12 +1,15 @@
-# Designing a RESTful API With Node and Postgres
+# Cloud Computing
 
-## Want to learn how to build this project?
+## Exercise 2 - "Flea Market"
 
-Check out the [blog post](http://mherman.org/blog/2016/03/13/designing-a-restful-api-with-node-and-postgres/#.WJNOqLYrJE4).
+## Usage:
 
-## Want to use this project?
-
-1. Fork/Clone
+0. Make sure Postgres is installed on your machine.
 1. Install dependencies - `npm install`
-1. Run - `psql -f puppies.sql`
-1. Run the development server - `npm start`
+2. Run - `psql -f fleamarket.sql`
+3. Run the development server - `npm start`
+
+## Notes
+
+Base structure of the project cloned from Michael Herman. 
+Checkout: "mjhea0/node-postgres-promises" or the [blog post](http://mherman.org/blog/2016/03/13/designing-a-restful-api-with-node-and-postgres/#.WJNOqLYrJE4).
