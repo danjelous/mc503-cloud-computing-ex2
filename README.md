@@ -2,6 +2,12 @@
 
 ## Exercise 2 - "Flea Market"
 
+### Master Branch
+Represents the deployed settings on Heroku and so does not run locally on your machine. The API index is available under following [link](https://hidden-tundra-33627.herokuapp.com/api/articles).
+
+### Develop Branch
+For local testing of the endpoints - see Usage.
+
 ## Usage:
 
 0. Make sure Postgres is installed on your machine.
@@ -11,7 +17,8 @@
 
 ## API Documentation
 
-To view the API Docs, simply navigate to `/api-docs/` to view the Swagger generated documentation.
+To view the API Docs on develop, navigate to `/api-docs/` to view the Swagger generated documentation.
+On master, the Doc is availabe under this [link](https://hidden-tundra-33627.herokuapp.com/api-docs/).
 
 ## Notes
 
