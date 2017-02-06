@@ -38,6 +38,19 @@ var db = require('../queries');
  *     tags:
  *       - Articles
  *     description: Returns all articles
+ *     parameters:
+ *      - name: priceAbove
+ *        in: query
+ *        description: Parameter to only get articles above a certain price. 
+ *        required: false
+ *        type: number
+ *        format: number
+ *      - name: priceBelow
+ *        in: query
+ *        description: Parameter to only get articles below a certain price. 
+ *        required: false
+ *        type: number
+ *        format: number
  *     produces:
  *       - application/json
  *     responses:

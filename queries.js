@@ -1,4 +1,5 @@
 var promise = require('bluebird');
+var util = require('util');
 
 var options = {
   // Initialization Options
@@ -10,23 +11,60 @@ var connectionString = 'postgres://localhost:5432/fleamarket';
 var db = pgp(connectionString);
 
 function getAllArticles(req, res, next) {
-  db.any('select * from articles')
-    .then(function (data) {
+
+  // Check whether parameters are present
+  var priceBelow = req.query.priceBelow,
+      priceAbove = req.query.priceAbove,
+      responseMessage = "Retrieved all articles",
+      dBQueryString = 'select * from articles';
       
-      if(data) {
-        res.status(200)
-          .json({
-            status: 'success',
-            data: data,
-            message: "Retrieved all articles."
-          });
-      } else {
-        res.status(204)
-          .json({
-            status: 'no content',
-            message: 'No articles to show!'
-          });
+  // Check if priceBelow parameter
+  if(priceBelow && parseFloat(priceBelow)) {
+      
+      // Check if comma
+      if(priceBelow.indexOf(",") > -1) {
+        tempArr = priceBelow.split(",");
+        priceBelow = parseFloat(tempArr[0] + "." + tempArr[1]);
       }
+
+      dBQueryString = "select * from articles where articles.price < " + priceBelow;
+      responseMessage = "Showing all articles with price below " + priceBelow;
+  }
+
+  // Check if priceAbove parameter
+  if(priceAbove && parseFloat(priceAbove)) {
+      
+      // Check if comma
+      if(priceAbove.indexOf(",") > -1) {
+        tempArr = priceAbove.split(",");
+        priceAbove = parseFloat(tempArr[0] + "." + tempArr[1]);
+      }
+
+      dBQueryString = "select * from articles where articles.price > " + priceAbove;
+      responseMessage = "Showing all articles with price above " + priceAbove;
+  }
+
+  // Check user used both parameters
+  if(priceAbove && priceBelow) {
+    dBQueryString = 'select * from articles';
+    responseMessage = "Showing all articles";      
+  }
+
+  db.any(dBQueryString)
+    .then(function (data) {
+
+      var respStatus = "success";
+
+      if(data.length == 0) {
+        respStatus = "no content"
+        responseMessage = "No articles to show!";
+      }
+
+      res.status(200).json({
+          status: respStatus,
+          data: data,
+          message: responseMessage
+        });
 
     })
     .catch(function (err) {
