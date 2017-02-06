@@ -12,12 +12,22 @@ var db = pgp(connectionString);
 function getAllArticles(req, res, next) {
   db.any('select * from articles')
     .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved all articles.'
-        });
+      
+      if(data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: "Retrieved all articles."
+          });
+      } else {
+        res.status(204)
+          .json({
+            status: 'no content',
+            message: 'No articles to show!'
+          });
+      }
+
     })
     .catch(function (err) {
       return next(err);
@@ -28,12 +38,23 @@ function getArticleById(req, res, next) {
   var articleId = parseInt(req.params.id);
   db.one('select * from articles where id = $1', articleId)
     .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved article using ID ' + articleId
-        });
+
+      // ID found
+      if(data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Retrieved article using ID ' + articleId + '.'
+          });
+      } else {
+        res.status(204)
+          .json({
+            status: 'no content',
+            message: 'Article with ID ' + articleId + ' not found!'
+          });
+      }
+
     })
     .catch(function (err) {
       return next(err);

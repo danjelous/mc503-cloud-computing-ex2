@@ -114,4 +114,24 @@ router.post('/api/articles', db.createArticle);
  */
 router.delete('/api/articles/:id', db.removeArticleById);
 
+
+
+/**  ----------------------------------------------
+ *   ----------- NOT ALLOWED ENDPOINTS ------------
+ *   ---------------------------------------------* */
+
+
+function notAllowed(req, res) {
+    res.status(405)
+        .json({
+            status: 'method not allowed',
+            message: "You better don't..."
+        });
+}
+
+router.delete("/api/articles", notAllowed);
+router.put("/api/articles", notAllowed);
+router.post("/api/articles/:id", notAllowed);
+router.put("/api/articles/:id", notAllowed);
+
 module.exports = router;
