@@ -20,6 +20,9 @@
   "description": "## Exercise 2 - \"Flea Market\"",
   "main": "app.js",
   "devDependencies": {},
+  "engines": {
+    "node": "5.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danjelous/mc503-cloud-computing-ex2.git"
