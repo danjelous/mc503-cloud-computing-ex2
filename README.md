@@ -9,6 +9,10 @@
 2. Run - `psql -f fleamarket.sql`
 3. Run the development server - `npm start`
 
+## API Documentation
+
+To view the API Docs, simply navigate to `/api-docs/` to view the Swagger generated documentation.
+
 ## Notes
 
 Base structure of the project cloned from Michael Herman. 

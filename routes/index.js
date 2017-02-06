@@ -22,7 +22,7 @@ var db = require('../queries');
  *         type: string
  *         description: Description of the article.
  *       price:
- *         type: decimal
+ *         type: number
  *         description: Price of the article in Euros. '9.99' for example.
  */
 
