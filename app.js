@@ -17,7 +17,7 @@ var swaggerDefinition = {
     version: '1.0.0',
     description: 'Cloud Computing Course, Exercise 2: FleaMarket made with Swagger',
   },
-  host: 'https://hidden-tundra-33627.herokuapp.com',
+  host: 'http://mc503-fleamarket.azurewebsites.net',
   basePath: '/',
 };
 
