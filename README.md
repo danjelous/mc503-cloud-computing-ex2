@@ -24,3 +24,4 @@ On master, the Doc is availabe under this [link](https://hidden-tundra-33627.her
 
 Base structure of the project cloned from Michael Herman. 
 Checkout: "mjhea0/node-postgres-promises" or the [blog post](http://mherman.org/blog/2016/03/13/designing-a-restful-api-with-node-and-postgres/#.WJNOqLYrJE4).
+
