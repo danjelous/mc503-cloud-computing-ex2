@@ -7,7 +7,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = process.env.DATABASE_URL;
+var connectionString = "postgres://postgres:SOJtiojKwA4F@40.68.184.145:5432/fleamarket";
 var db = pgp(connectionString);
 
 function getAllArticles(req, res, next) {
