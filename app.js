@@ -8,7 +8,6 @@ var swaggerJSDoc = require('swagger-jsdoc');
 var opbeat = require('opbeat').start();
 
 var routes = require('./routes/index');
-
 var app = express();
 
 // swagger definition
