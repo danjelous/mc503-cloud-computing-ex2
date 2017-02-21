@@ -129,7 +129,7 @@ router.post('/api/articles', db.createArticle);
 router.delete('/api/articles/:id', db.removeArticleById);
 
 // Send mail
-router.post('/api/mail/send', mail.sendMailTo);
+router.post('/api/mail/send', mail.sendMail);
 
 
 /**  ----------------------------------------------
