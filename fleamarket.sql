@@ -13,7 +13,6 @@ CREATE TABLE articles (
   retailer_email VARCHAR
 );
 
-
 INSERT INTO articles (picture_path, name, description, price, retailer, retailer_email) VALUES 
   ('images/1.jpg', 'TV', 'Get back to your youth - instantly.', 99.99, 'Ricarda', 'ricarda.schagerl@gmail.com'),
   ('images/2.jpg', 'iHipster Phonemaster 2000', 'As the titleSpo suggests you can never miss a single call with this badboy.', 421.05, 'Ricarda', 'ricarda.schagerl@gmail.com'),
