@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var db = require('../queries');
+var mail = require('../addons/mailgun');
 
 /**  ----------------------------------------------
  *   ----------- SWAGGER DEFINITIONS --------------
@@ -127,6 +128,8 @@ router.post('/api/articles', db.createArticle);
  */
 router.delete('/api/articles/:id', db.removeArticleById);
 
+// Send mail
+router.post('/api/mail/send', mail.sendMailTo);
 
 
 /**  ----------------------------------------------
