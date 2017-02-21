@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var db = require('../queries');
+var mail = require('../addons/mailgun');
 
 /**  ----------------------------------------------
  *   ----------- SWAGGER DEFINITIONS --------------
@@ -126,6 +127,9 @@ router.post('/api/articles', db.createArticle);
  *         description: Article successfully deleted
  */
 router.delete('/api/articles/:id', db.removeArticleById);
+
+router.get('/api/mail/get', mail.getMail);
+router.post('/api/mail/send', mail.sendMail);
 
 
 
